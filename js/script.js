@@ -37,11 +37,15 @@ createApp({
        next(){
         if (this.currentIndex >= 0 && this.currentIndex < 4){
             this.currentIndex++
+        } if (this.currentIndex === 4){
+            this.currentIndex = 0
         }
        },
        prev(){
         if (this.currentIndex <= 4 && this.currentIndex > 0 ){
             this.currentIndex--
+        } if (this.currentIndex === 0){
+            this.currentIndex = 4
         }
        }
 
