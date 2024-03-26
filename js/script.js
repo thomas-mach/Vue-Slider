@@ -5,6 +5,7 @@ createApp({
     data() {
         return {
             currentIndex: 0,
+            intervalId: null,
              slides: [
             {
                 image: 'img/01.webp',
@@ -32,6 +33,10 @@ createApp({
             
         }
     },
+
+    mounted() {
+        this.startSlider();
+    },
     
     methods:{
        next(){
@@ -47,9 +52,17 @@ createApp({
         } if (this.currentIndex === 0){
             this.currentIndex = this.slides.length -1
         }
-        }
-
-    
+        },
+        startSlider() {
+            this.intervalId = setInterval(this.next, 3000)
+          },
+        pauseSlider() {
+            clearInterval(this.intervalId)
+        },
+        resumeSlider() {
+            this.startSlider()
+        },
     }
+    
     
 }).mount('#app')
