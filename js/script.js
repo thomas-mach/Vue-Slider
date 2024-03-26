@@ -35,19 +35,19 @@ createApp({
     
     methods:{
        next(){
-        if (this.currentIndex >= 0 && this.currentIndex < 4){
+        if (this.currentIndex >= 0 && this.currentIndex < this.slides.length){
             this.currentIndex++
-        } if (this.currentIndex === 4){
+        } if (this.currentIndex === this.slides.length){
             this.currentIndex = 0
         }
        },
        prev(){
-        if (this.currentIndex <= 4 && this.currentIndex > 0 ){
+        if (this.currentIndex <= this.slides.length && this.currentIndex > 0 ){
             this.currentIndex--
         } if (this.currentIndex === 0){
-            this.currentIndex = 4
+            this.currentIndex = this.slides.length -1
         }
-       }
+        }
 
     
     }
