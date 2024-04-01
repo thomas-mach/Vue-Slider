@@ -6,7 +6,7 @@ createApp({
         return {
             currentIndex: 0,
             intervalId: null,
-             slides: [
+            slides: [
             {
                 image: 'img/01.webp',
                     title: 'Marvel\'s Spiderman Miles Morale',
@@ -40,21 +40,23 @@ createApp({
     
     methods:{
        next(){
-        if (this.currentIndex >= 0 && this.currentIndex < this.slides.length){
-            this.currentIndex++
-        } if (this.currentIndex === this.slides.length){
+            if (this.currentIndex < this.slides.length){
+            this.currentIndex ++
+            } if (this.currentIndex === this.slides.length){
             this.currentIndex = 0
-        }
-       },
-       prev(){
-        if (this.currentIndex <= this.slides.length && this.currentIndex > 0 ){
-            this.currentIndex--
-        } if (this.currentIndex === 0){
-            this.currentIndex = this.slides.length -1
-        }
+            }
+            console.log(this.currentIndex)
+        },
+        prev(){
+            if (this.currentIndex > -1){
+                this.currentIndex --
+            } if (this.currentIndex === -1){
+                this.currentIndex = this.slides.length -1 
+            }
+            console.log(this.currentIndex)
         },
         startSlider() {
-            this.intervalId = setInterval(this.next, 3000)
+            this.intervalId = setInterval(this.next, 1000)
           },
         pauseSlider() {
             clearInterval(this.intervalId)
